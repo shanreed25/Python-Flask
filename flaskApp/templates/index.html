@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<style>
+    h1{
+    font-size: 4rem;
+    }
+    p {
+    font-size: 3rem;
+    }
+    #footer{
+    font-size: 1rem;
+    }
+</style>
+<body>
+    <h1>Jinja</h1>
+    <p>{{5 * 6}}</p>
+    <p>Random Number: {{num}}</p>
+    {# In every Jinja template we have access to a method called url_for #}
+    {# url_for takes a name of a function in your flask server, as a string: 'get_blogs' #}
+    <a href="{{ url_for('get_blogs') }}">Go To Blog</a> {# generates a hyperlink to blog.html#}
+
+<footer>
+    <p id="footer">© Copyright {{year}}. Built By Shannon Reed</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %} {# import the render_form() function from bootstrap-flask. #}
+{% block title %}Secrets{% endblock %}
+
+
+{# Bootstrap-Flask is one of the most convenient methods for generating forms with WTForms #}
+{#  in 1 line of code, you can create your form '{{ render_form(form) }}` #}
+{#  '{{ render_form(form) }}` will generate all the labels, inputs, buttons, #}
+{# styling for your form just by taking the WTForm object that was passed to the template (form) #}
+
+{% block content %}
+        <div class="container">
+		<h1>Login</h1>
+			{{ render_form(form) }}
+        <!-- This is where our form will go. -->
+<!--			<form method="POST" action="{{ url_for('login') }}" novalidate> {# novalidate switches off the browser validation #}-->
+<!--				{{ form.csrf_token }} {#add csrf protection#}-->
+<!--				<p>{{ form.email.label }} <br> {{ form.email(size=30) }} {#  size 30, describes the width of the input#}</p>-->
+<!--				{% for err in form.email.errors %}-->
+<!--					<span style="color:red">{{err}}</span>-->
+<!--				{% endfor %}-->
+
+<!--				{# When a form is submitted, there may be a number of errors, so a list of errors can be generated-->
+<!--				and passed over to our form HTML as a property on the field which generated the error #}-->
+
+<!--				<p>{{ form.password.label }} <br> {{ form.password(size=30) }}</p>-->
+<!--				{% for err in form.password.errors %}-->
+<!--					<span style="color:red">{{err}}</span>-->
+<!--				{% endfor %}-->
+<!--				{{ form.submit }}-->
+<!--			</form>-->
+		</div>
+
+{% endblock %}

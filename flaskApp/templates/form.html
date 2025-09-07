@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+<!-- the method attribute specifies how to send form-data -->
+<!-- the form-data is sent to the page specified in the action attribute -->
+
+<!--action attribute of the form can be set to -->
+<!-- "action" and "method" links this form to the server.py -->
+    <form action="{{ url_for('receive_data') }}" method="post">
+<!-- Once the form is submitted, we need to catch this POST request in our server-->
+<!-- To do this we first need to give each input in our form a name attribute-->
+        <p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="user_name" required>
+        </p>
+        <p>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="user_email" required>
+        </p>
+        <p>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="user_message" rows="5" required></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Send Message">
+        </p>
+    </form>
+</body>
+</html>

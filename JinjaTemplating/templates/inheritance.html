@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jinja Templates: Inheritance</title>
+ <style>
+     main{
+        padding: 2rem;
+     }
+     span{
+        font-weight: bolder;
+        color: red;
+     }
+     .examples-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     }
+    img{
+        width: 60%;
+     }
+     .child-templates{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+     }
+
+ </style>
 </head>
 <body>
+{% include "menu.html" %}
+<main>
+    <div class="concept-intro">
+        <h2>Template Inheritance</h2>
+            <ul>
+                <li>enables the creation of reusable and modular web layouts by establishing a parent-child relationship between templates</li>
+                <li>allows you to create a base layout (a "skeleton") and then define child templates that inherit from this base and override specific sections (called "blocks")</li>
+                <li>ideal for maintaining a consistent structure across multiple pages while allowing for content variations</li>
+                <li>templates can extend other child templates, creating a hierarchy of inheritance for complex layouts</li>
+                <li>like object-oriented programming inheritance, where a child class inherits properties and methods from a parent class and can override or add its own</li>
+            </ul>
 
+            <h3>Base Template (Parent)</h3>
+                <ul>
+                    <li>defines the common structure and elements shared across multiple pages, such as headers, footers, navigation bars, and sidebars</li>
+                    <li>utilizes <span>&lbrace;&percnt; block &percnt;&rbrace;</span> tags to define named areas where child templates can insert or override content</li>
+                    <li></li>
+                </ul>
+
+            <h3>Child Template (Extending)</h3>
+                <ul>
+                    <li> inherit from a base template using the <span>&lbrace;&percnt; extends &percnt;&rbrace;</span> tag</li>
+                    <li>then use <span>&lbrace;&percnt; block &percnt;&rbrace;</span> tags with the same names as those in the parent to inject their specific content, overriding or extending the parent's default content</li>
+                    <li><span>&lbrace;&lbrace; super() &rbrace;&rbrace;</span> can be used to render the content of the parent block, allowing for appending or prepending content without completely overriding it</li>
+                </ul>
+    </div>
+
+    <div class="examples-container">
+        <div class="base-template">
+            <p>Base Template</p>
+            <img id="base-img" src="./static/images/inheritance-base.png">
+        </div>
+        <div class="child-templates">
+            <div>
+                <p>Child Template extends base template: home.html</p>
+                <img src="./static/images/inheritance-child1.png">
+            </div>
+            <div>
+                <p>Child Template rendered: home.html</p>
+                <img src="./static/images/inheritance-child1rendered.png">
+            </div>
+        </div>
+        <div class="child-templates">
+            <div>
+                <p>Child Template extends base template: about.html</p>
+                <img src="./static/images/inheritance-child2.png">
+            </div>
+            <div>
+                <p>Child Template rendered: about.html</p>
+                <img src="./static/images/inheritance-child2rendered.png">
+            </div>
+        </div>
+
+    </div>
+</main>
 </body>
 </html>

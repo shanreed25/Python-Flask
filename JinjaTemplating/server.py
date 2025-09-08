@@ -8,14 +8,20 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/include-method")
+@app.route("/include-directive")
 def include():
     return render_template("./include.html")
 
 
+@app.route("/inheritance")
+def inheritance():
+    return render_template("./inheritance.html")
+
+
+# Route for practice code
 @app.route("/try")
 def try_code():
-    return render_template("./try/parent.html")
+    return render_template("./try/about.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

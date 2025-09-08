@@ -1,0 +1,36 @@
+
+
+<style>
+    .example{
+        display: flex;
+
+    }
+    .box{
+        width: 400px;
+        height: 200px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+
+        text-align: center;
+    }
+</style>
+
+<div class="example">
+    <div class="box">
+        <p>This box lives in box.html</p>
+        <p>{{ var_1 }}</p>
+        <p>Hello {{ user.name }}, you are {{ user["age"] }} years old.</p>
+    </div>
+    <div>
+        <ul>
+        <li>This example is included using <span class="code">&lbrace;&percnt; include &quot;box.html&quot; &percnt;&rbrace;</span> </li>
+        <ul>
+            <li>box.html is the child template</li>
+            <li>include.html is the parent template</li>
+        </ul>
+
+        <li>the included template automatically inherits the entire rendering context of the parent template</li>
+        <li>so, any variables defined in the parent template, or passed to the render() method of the parent template, are directly accessible within the included(child) template</li>
+    </ul>
+    </div>
+</div>
+

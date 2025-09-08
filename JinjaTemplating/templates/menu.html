@@ -1,0 +1,41 @@
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: purple;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: purple;
+  color: white;
+}
+</style>
+
+
+<div class="topnav">
+  <a class="active" href="{{ url_for('home') }}">Jinja</a>
+  <a href="#news">Inheritance</a>
+  <a href="{{ url_for('include')}}">Include Directive</a>
+  <a href="#about">About</a>
+</div>
+
+

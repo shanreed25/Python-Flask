@@ -1,0 +1,93 @@
+<style>
+    .concept-example{
+        background-color: green;
+        display:flex:
+        flex-direction: row;
+    }
+
+    .code-boxes-container{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+    }
+    .final-output-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .code-box {
+        background-color: #282c34;
+        color: #abb2bf;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 60%;
+        max-width: 600px;
+        overflow-x: auto; /* Enable horizontal scrolling for long lines */
+    }
+
+     .code-box-title{
+        padding: .5rem 1rem;
+        border: .1rem solid #abb2bf;
+     }
+
+     .code{
+         padding: .5rem 1rem
+      }
+
+      .code-box code {
+          font-family: monospace;
+          font-size: .9rem;
+          line-height: 1.5;
+       }
+</style>
+<section class="concept-example-container">
+    <h4>Example: {{ example_description }}</h4>
+    <div class="code-boxes-container" >
+            <div class="code-box">
+                <div class="code-box-title">{{ first_filename }}</div>
+                <div class="code">
+                    <code>
+                        {% for code_line in first_file_code: %}
+                            {{ code_line }}<br>
+                        {% endfor %}
+                    </code>
+                </div>
+            </div>
+
+            <div class="code-box">
+                <div class="code-box-title">{{ second_filename }}</div>
+                <div class="code">
+                    <code>
+                        {% for code_line in second_file_code: %}
+                            {{ code_line }}<br>
+                        {% endfor %}
+                    </code>
+                </div>
+            </div>
+
+        </div>
+    <div class="final-output-container" >
+            <div>
+                <ul>
+                    {% for text in final_output_explanation: %}
+                        <li>{{ text }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="code-box">
+                <div class="code-box-title">{{ final_filename }}</div>
+                <div class="code">
+                    <code>
+                        {% for code_line in final_file_code: %}
+                            {{ code_line }}<br>
+                        {% endfor %}
+                    </code>
+                </div>
+            </div>
+
+
+        </div>
+</section>

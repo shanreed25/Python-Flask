@@ -1,0 +1,63 @@
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">&lbrace;&percnt; include &percnt;&rbrace;</a>
+  <a href="#projects">Projects</a>
+  <a href="#about">About</a>
+
+  {# Variable Expression #}
+  <a href="#newitem">{{ new_item }}</a>
+
+  <a href="#newitem">{{ menu.another_new_item }}</a>
+
+  <a href="#newitem">{{ third_new_item }}</a>
+</div>
+
+
+
+
+
+<div style="padding-left:16px">
+  <h2>Jinja Templating: &lbrace;&percnt; include &quot;template_name.html&quot; &percnt;&rbrace; </h2>
+    <h3>Include Statement</h3>
+
+    <p>The default behavior is to pass the current context of the including template to the included template. <br>
+        This means that variables defined in the parent template are accessible within the included template without explicit declaration</p>
+        {% set var_1 = "Hello from Jinja." %}
+        {% set user = { "name": "Molly", "age": 32 } %}
+        {% include "box.html" %}
+<hr>
+    <div>
+        <h3>Variable Expressions</h3>
+        <p>Used to output dynamic content within a template. They are enclosed by double curly braces, &lbrace;&lbrace; ...... &rbrace;&rbrace;, and are evaluated and replaced with their corresponding value when the template is rendered. </p>
+
+        <ul>
+            <li><span>Delimiters: </span> The double curly braces  &lbrace;&lbrace; ...... &rbrace;&rbrace; signal to the Jinja engine that the enclosed content is an expression that needs to be evaluated</li>
+            <li><span>Dynamic Content: </span>A variable expression acts as a placeholder for a value that is not known until runtime. This value is passed into the template during the rendering process</li>
+            <li><span>Context: </span> The values for variables are provided through a context—a dictionary-like object that is supplied by the application rendering the template</li>
+        </ul>
+
+        <p>"Hello from Jinja" is added using a <span>variable expression:</span><span class="code"> &lbrace;&lbrace; var_1 &rbrace;&rbrace;</span> <span class="more_info">(inside box.html)</span></p>
+        <ul>
+            <li>the variable "var_1" is set using <span class="code">&lbrace;&percnt; set var_1 = "Hello from Jinja" &percnt;&rbrace;</span> <span class="more_info">(inside include.html)</span></li>
+        </ul>
+
+         <p>"Hello Molly, you are 32 years old.": is added using a <span>variable expression:</span><span class="code"> Hello &lbrace;&lbrace; user.name &rbrace;&rbrace;, you are &lbrace;&lbrace; user["age"] &rbrace;&rbrace; years old.</span> <span class="more_info">(inside box.html)</span></p>
+        <ul>
+            <li>the variable expressions "user.name", and "user.age" is set in the include.html file using <span class="code">&lbrace;&percnt; set user = { "name": "Molly", "age": 32 } &percnt;&rbrace;</span> <span class="more_info">(inside include.html)</span></li>
+            <li>variable is set as a dictionary representing a user</li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Including with Context</h3>
+        <p>By default, included templates have access to the variables of the parent template's context.)</p>
+        <p>You can explicitly control context passing, with Specific Context using with context or without context.</p>
+        <ul>
+            <li><span>with context: </span>the default behavior, which passes the current context to the included template: &lbrace;&percnt; include "partial.html" with context &percnt;&rbrace;</li>
+            <li>You can also pass specific variables to the included template using the with keyword, which creates a new context for the included template: &lbrace;&percnt; include "item_display.html" with item=product &percnt;&rbrace; </li>
+            <li><span>without context: </span> prevents the current context from being passed, so the included template will only have access to global variables or those passed via set: &lbrace;&percnt; include "partial.html" without context &percnt;&rbrace;</li>
+            <li>If you want to include a template only if it exists, you can use the ignore missing keyword: &lbrace;&percnt; include "optional_section.html" ignore missing &percnt;&rbrace;</li>
+        </ul>
+    </div>
+
+</div>

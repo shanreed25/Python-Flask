@@ -1,0 +1,63 @@
+
+<style>
+    .concept-example{
+        background-color: green;
+        display:flex:
+        flex-direction: row;
+    }
+
+    .code-boxes-container{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+    }
+    .final-output-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .code-box {
+        background-color: #282c34;
+        color: #abb2bf;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 60%;
+        max-width: 600px;
+        overflow-x: auto; /* Enable horizontal scrolling for long lines */
+    }
+
+     .code-box-title{
+        padding: .5rem 1rem;
+        border: .1rem solid #abb2bf;
+     }
+
+     .code{
+         padding: .5rem 1rem
+      }
+
+      .code-box code {
+          font-family: monospace;
+          font-size: .9rem;
+          line-height: 1.5;
+       }
+</style>
+
+<div id={{concept_id}} class="concept-container">
+    <div class="concept-description-container" >
+        <h2>{{ concept_title }}</h2>
+        <h4>Characteristics</h4>
+
+        <ul>
+          {% for item in characteristic_list: %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+
+        <div>{{ more_info }}</div>
+    </div>
+
+    {% include "code_example.html" %}
+</div>
+

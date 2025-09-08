@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parent Template</title>
+</head>
+<body>
+<h1>This is the Parent Template</h1>
+    {% set global_var = "I am a global variable" %}
+    {% set name = "Lisa" %}
+    {% set age = 20 %}
+    <p>Including a child template with specific variables:</p>
+    {% with name="Carl", age=30 %}
+        {% include "./try/child.html" %}
+    {% endwith %}
+
+    <p>Global variable in parent: {{ global_var }}</p>
+    <p>Hello from parent, {{ name }}! You are {{ age }} years old.</p>
+</body>
+</html>

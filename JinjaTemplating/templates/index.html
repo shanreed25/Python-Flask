@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jinja Templates</title>
+ <style>
+     .content{
+        padding: 2rem;
+     }
+
+     span{
+        font-weight: bolder;
+     }
+
+     .code{
+        color: blue;
+     }
+
+     .more_info{
+        color: grey;
+        font-style: italic;
+ </style>
+</head>
+<body>
+
+
+{% include "menu.html" %}
+
+    <div class="content">
+        <h1>Jinja Templates</h1>
+        <ul>
+            <li>are essentially text files that can contain placeholders for dynamic content and control structure</li>
+            <li>can be used to generate any text-based format, not just HTML</li>
+            <li>Jinja's syntax for expressions and control flow (like loops and conditionals) is inspired by Python, making it relatively easy for Python developers to learn and us</li>
+        </ul>
+        <h2>Placeholders and delimiters</h2>
+        <p>Jinja uses specific delimiters to distinguish between static text and dynamic elements</p>
+        <ul>
+            <li><span>&lbrace;&lbrace; ...... &rbrace;&rbrace;:</span> Used for expressions, which output values (e.g., variables, function calls).</li>
+            <li><span>&lbrace;&percnt; ...... &percnt;&rbrace;:</span> Used for control structures, such as loops (for), conditionals (if/else), and macro definitions.</li>
+            <li><span>&lbrace;# ...... #&rbrace;:</span> Used for comments within the template.</li>
+        </ul>
+
+        <h2>Features for dynamic content</h2>
+        <ul>
+            <li><span>Variables: </span> to display data passed to the template</li>
+            <li><span>Filters: </span> to modify or format variable values before rendering</li>
+            <li><span>Tests: </span> to evaluate conditions on variables</li>
+            <li><span>Control Structures: </span> to implement conditional rendering and iteration</li>
+            <li><span>Macros: </span> to define reusable blocks of template code</li>
+            <li><span>Template Inheritance and Inclusion: </span> to build complex templates from smaller, reusable components</li>
+        </ul>
+
+        <p>Jinja is widely used in Python web frameworks like Flask, where it serves as the default templating engine for generating dynamic HTML responses.<br> It is also used in other applications like Ansible for configuration management.</p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jinja Templates: Include</title>
+ <style>
+     .content{
+        padding: 2rem;
+     }
+     span{
+        font-weight: bolder;
+     }
+     .code{
+        color: yellow;
+     }
+     .more_info{
+        color: grey;
+        font-style: italic;
+ </style>
+</head>
+<body>
+{% include "menu.html" %}
+<div class="content">
+
+
+{##################Include Directive CONCEPT##############################}
+{% set concept_title = "Include Directive" %}
+{% set characteristic_list = [
+    "used to embed the content of one template file directly into another",
+    "useful for breaking down large templates into smaller, reusable components, such as headers, footers, or navigation menus",
+    "the default behavior is to pass the current context of the including template to the included template, so variables defined in the parent template are accessible within the included template without explicit declaration",
+] %}
+
+
+{% set example_description = "Consider a main template main.html and an included template greeting.html" %}
+{% set first_filename = "main.html" %}
+{% set first_file_code = ["
+    {% set name = 'Carl' %}",
+"<p>Welcome, {{ name }}!</p>",
+    "{% include 'greeting.html' %}"
+] %}
+
+{% set second_filename = "greeting.html" %}
+{% set second_file_code = ["<p>Hello from the included template, {{ name }}!</p>"] %}
+
+{% set final_output_explanation = [
+    "When main.html is rendered, greeting.html is included",
+    "The name variable from main.html is automatically available in greeting.html"
+] %}
+{% set final_filename = "main.html final output" %}
+{% set final_file_code = ["Welcome, Carl!", "Hello from the included template, Carl!"] %}
+{% include "concept_base.html" %}
+<hr>
+
+
+{##################Including with context CONCEPT##############################}
+<h2>Including with Context</h2>
+<p>By default, included templates have access to the variables of the parent template's context but, <br>
+'with context' and 'without context' can be used to control context passing.</p>
+
+<h3>Explicitly Controlling Context Passing</h3>
+    <p><span>with context:</span> pass the current context to the included template</p>
+        <ul>
+            <li><span>&lbrace;&percnt; include "greeting.html" with context &percnt;&rbrace;</span></li>
+            <li>though for include, 'with context' is redundant as it is the default, but it will allow you to explicitly control context passing</li>
+            <li>often used for clarity or when the default behavior might be overridden in specific scenarios</li>
+        </ul>
+    <p><span>with block:</span> passes specific variables to an included template within a new, isolated context</p>
+        <ul>
+            <li>the variables defined within the with block are available to the included template but do not affect the context of the parent template</li>
+            <li>setting the variables using a with block will prevent the current context of the parent template variables values from being passed</li>
+        </ul>
+    {% set example_description = "Consider a main template parent.html and an included template child.html" %}
+    {% set first_filename = "parent.html" %}
+    {% set first_file_code = [
+    "<h1>This is the Parent Template</h1>",
+    "{% set global_var = 'I am a global variable' %}",
+    "{% set name = 'Lisa' %}",
+    "{% set age = 20 %}",
+    "<p>Including a child template with specific variables:</p>",
+    "{% with name='Carl', age=30,  %}",
+    "{% include 'child.html' %}",
+    "{% endwith %}",
+    "Global variable in parent: {{ global_var }}",
+    "Hello from parent, {{ name }}! You are {{ age }} years old.",
+    "",
+    ] %}
+
+    {% set second_filename = "child.html" %}
+    {% set second_file_code = [
+    "<h2>This is the Included Template</h2>",
+    "<p>Hello from child, {{ name }}! You are {{ age }} years old.</p>",
+    "<p>Global variable in child from parent: {{ global_var }}</p>"
+    ] %}
+
+    {% set final_output_explanation = [
+        "global_var, name and age are defined in the parent's context",
+        "the with block also defines name and age in the child's context",
+        "name and age defined in the with block are passed as local variables to child.html",
+        "name and age from parent's context is overwritten by the with block for child.html only",
+        "name and age defined in the parent's context is still accessible by the parent.html",
+        "global_var from parent.html is accessible within child.html",
+
+    ] %}
+    {% set image_path = "./static/images/include-variables.png" %}
+
+    {% include "code_example_image.html" %}
+
+    <p><span>without context:</span> </p>
+        <ul>
+            <li><span>&lbrace;&percnt; include "greeting.html" without context &percnt;&rbrace;</span></li>
+        </ul>
+
+<hr>
+
+
+{##################Include Directive with context CONCEPT##############################}
+<h2>Handling Missing Templates</h2>
+    <p>If you want to include a template only if it exists, you can use the ignore missing keyword</p>
+    <ul>
+        <li>&lbrace;&percnt; include "optional_section.html" ignore missing &percnt;&rbrace;</li>
+        <li> will prevent an error if optional_section.html is not found</li>
+    </ul>
+</div>
+</body>
+</html>

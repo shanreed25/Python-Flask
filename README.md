@@ -14,22 +14,18 @@
 - [Higher Or Lower](./GettingStarted/higher_lower.py)
 - [Rendering HTML](./GettingStarted/html_elements.py)
 - [Custom Decorators](.GettingStarted/custom_decorators.py)
-
-
-
-
-- [Flask App: Jinja Templating](./docs/flaskApp/server.py)
+- [Flask App: Jinja Templating]()
     - Using Jinja to Produce Dynamic HTML Pages
     - Combining Jinja Templating with APIs
     - Multiline Statements
     - for loop 
     - if statement
     - URL Building with Flask(`url_for`)
-- [Make POST Requests with Flask and HTML Forms](./docs/flaskApp/server.py)
-- [Forms](./docs/contactFormFlaskApp/server.py)
-- [WTForms](./docs/WTFForms/server.py)
-- [Bootstrap Flask WTFoms](./docs/Bootstrap-Flask-WTForms/main.py)
-- [DB Integration with SQLAlchemy](./docs/DBFlaskSQLAlchemy/README.md)
+- [Make POST Requests with Flask and HTML Forms](./flaskApp/server.py)
+- [Forms](./contactFormFlaskApp/server.py)
+- [WTForms](./WTFForms/server.py)
+- [Bootstrap Flask WTFoms](./Bootstrap-Flask-WTForms/main.py)
+- [DB Integration with SQLAlchemy](./DBFlaskSQLAlchemy/README.md)
 - [Flask Authentication]()
 - []()
 - []()
@@ -43,3 +39,17 @@
 - [Debug Mode](https://flask.palletsprojects.com/en/stable/quickstart/#debug-mode)
 - [Rendering Templates](https://flask.palletsprojects.com/en/stable/quickstart/#rendering-templates)
     - For templates you can use the full power of [Jinja Templates](https://jinja.palletsprojects.com/en/stable/templates/)
+
+
+
+To add {% include "menu.html" %} as literal text on an HTML page, rather than having it processed as a template include, you need to escape the special characters. This involves replacing the < and > characters with their corresponding HTML entities.
+Here's how to do it:
+Code
+
+- `<p>&lbrace;&percnt; include &quot;menu.html&quot; &percnt;&rbrace;</p>`
+###### Explanation of Entities:
+- &lbrace; represents {
+- &percnt; represents %
+- &quot; represents "
+- &rbrace; represents }
+**By using these HTML entities, the browser will render the text literally, displaying {% include "menu.html" %} instead of attempting to process it as a template directive.**

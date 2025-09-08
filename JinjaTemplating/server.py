@@ -8,6 +8,11 @@ app = Flask(__name__)
 def home():
     return render_template("index.html", active_page="home")
 
+@app.route("/how")
+def how():
+    return render_template("./how.html", active_page="how")
+
+
 @app.route("/include-directive")
 def include():
     return render_template("./include.html", active_page="include")

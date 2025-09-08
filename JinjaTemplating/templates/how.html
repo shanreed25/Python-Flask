@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}How Jinja Works{% endblock %}
+
+{% block styles %}
+.how-content{
+    padding: 2rem;
+}
+     span{
+        font-weight: bolder;
+     }
+
+{% endblock %}
+{% block content %}
+<div class="how-content">
+
+    <h1>How Jinja Works</h1>
+    <h2>Templates</h2>
+    <ul>
+        <li>You write Jinja templates (e.g., in an .html file) that contain a mix of static text and special Jinja syntax.</li>
+        <li>The Jinja include directive is a tag used to insert the rendered content of one template file into another</li>
+        <li>Template Inheritance allows you to define a base template and have other templates inherit and extend its structure.</li>
+    </ul>
+        <p> </p>
+    <h2>Delimiters</h2>
+        <p>Special syntax, or "delimiters," are used to indicate Jinja cod</p>
+    <ul>
+            <li><span>&lbrace;&lbrace; expression &rbrace;&rbrace;:</span> Evaluates an expression and prints its result, like a variable</li>
+            <li><span>&lbrace;&percnt; statement &percnt;&rbrace;:</span>  Executes statements, such as loops or conditional statements, to control the template's behavior but doesn't produce output itself. </li>
+            <li><span>&lbrace;# comment #&rbrace;:</span> For comments within the template, which are not rendered in the final output. </li>
+        </ul>
+    <h2>Data</h2>
+        <p>A Python application provides data (variables) to the template</p>
+    <h2>Rendering</h2>
+        <p>Jinja processes the template, filling in the variables and executing the logic, to produce the final, dynamic document.</p>
+{% endblock %}
+
+</div>

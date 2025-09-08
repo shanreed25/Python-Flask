@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Jinja Templates{% endblock %}
+{% block title %}Jinja{% endblock %}
  {% block styles %}
-     .content{
+     .home-content{
         padding: 2rem;
      }
 
@@ -20,12 +20,15 @@
 
 {% block content %}
 
-    <div class="content">
-        <h1>Jinja Templates</h1>
+<div class="home-content">
+    <div>
+        <h1>Jinja</h1>
         <ul>
-            <li>are essentially text files that can contain placeholders for dynamic content and control structure</li>
-            <li>can be used to generate any text-based format, not just HTML</li>
+            <li>a modern, fast, and extensible templating engine used in Python web development, particularly with frameworks like Flask</li>
+            <li>allows you to generate dynamic text-based documents like HTML, XML, or emails by embedding logic similar to Python within text files</li>
             <li>Jinja's syntax for expressions and control flow (like loops and conditionals) is inspired by Python, making it relatively easy for Python developers to learn and us</li>
+            <li>separates the presentation logic from the application logic, allowing developers to create clean and maintainable templates for generating various types of dynamic content</li>
+            <li>works by separating content from logic, using delimiters like &lbrace;&lbrace; variable &rbrace;&rbrace; for output and &lbrace;&percnt; statement &percnt;&rbrace; for control flow, and provides features such as template inheritance, auto-escaping to prevent XSS attacks, and efficient caching</li>
         </ul>
         <h2>Placeholders and delimiters</h2>
         <p>Jinja uses specific delimiters to distinguish between static text and dynamic elements</p>
@@ -35,16 +38,38 @@
             <li><span>&lbrace;# ...... #&rbrace;:</span> Used for comments within the template.</li>
         </ul>
 
-        <h2>Features for dynamic content</h2>
+        <h2>Features</h2>
         <ul>
             <li><span>Variables: </span> to display data passed to the template</li>
-            <li><span>Filters: </span> to modify or format variable values before rendering</li>
+            <li><span>Filters: </span>  allows you to modify or format variable data, such as trimming whitespace or capitalizing text. </li>
             <li><span>Tests: </span> to evaluate conditions on variables</li>
             <li><span>Control Structures: </span> to implement conditional rendering and iteration</li>
-            <li><span>Macros: </span> to define reusable blocks of template code</li>
+            <li><span>Macros: </span>reusable chunks of logic within your templates, similar to functions in programming</li>
             <li><span>Template Inheritance and Inclusion: </span> to build complex templates from smaller, reusable components</li>
+            <li><span>HTML Auto-Escaping: </span> Automatically escapes HTML to prevent Cross-Site Scripting (XSS) vulnerabilities when rendering user-generated content. </li>
+            <li><span>Caching: </span> Templates are compiled into Python code and cached for performance. </li>
         </ul>
 
-        <p>Jinja is widely used in Python web frameworks like Flask, where it serves as the default templating engine for generating dynamic HTML responses.<br> It is also used in other applications like Ansible for configuration management.</p>
+        <h2>Common use Cases</h2>
+        <h4>Web Frameworks</h4>
+            <p>Jinja is widely used in Python web frameworks, most notably with Flask, to generate HTML for web pages. </p>
+        <h4>Configuration Files</h4>
+            <p>Dynamically generating configuration files, emails, or any text-based document. </p>
+        <h4>Data Transformation</h4>
+            <p>Used in tools like dbt to manipulate and transform data for reporting or other applications. </p>
     </div>
+    <hr>
+    <div>
+
+    </div>
+<!--    <div>-->
+<!--        <h2>Jinja Templates</h2>-->
+<!--        <ul>-->
+<!--            <li>are essentially text files that can contain static content, placeholders for dynamic content and control structure</li>-->
+<!--            <li>can be used to generate any text-based format, not just HTML</li>-->
+
+<!--        </ul>-->
+
+<!--    </div>-->
+</div>
 {% endblock %}

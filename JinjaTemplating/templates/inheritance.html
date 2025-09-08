@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Jinja Templates: Inheritance{% endblock %}
 {% block styles %}
-     main{
+     .inheritance-content{
         padding: 2rem;
      }
      span{
@@ -26,8 +26,7 @@
  {% endblock %}
 
 {% block content %}
-<main>
-    <div class="concept-intro">
+<div class="inheritance-content">
         <h2>Template Inheritance</h2>
             <ul>
                 <li>enables the creation of reusable and modular web layouts by establishing a parent-child relationship between templates</li>
@@ -41,14 +40,21 @@
                 <ul>
                     <li>defines the common structure and elements shared across multiple pages, such as headers, footers, navigation bars, and sidebars</li>
                     <li>utilizes <span>&lbrace;&percnt; block &percnt;&rbrace;</span> tags to define named areas where child templates can insert or override content</li>
-                    <li></li>
                 </ul>
 
             <h3>Child Template (Extending)</h3>
                 <ul>
                     <li> inherit from a base template using the <span>&lbrace;&percnt; extends &percnt;&rbrace;</span> tag</li>
+                    <li><span>&lbrace;&percnt; extends &percnt;&rbrace;</span> specifies which base template a child template should inherit from</li>
                     <li>then use <span>&lbrace;&percnt; block &percnt;&rbrace;</span> tags with the same names as those in the parent to inject their specific content, overriding or extending the parent's default content</li>
                     <li><span>&lbrace;&lbrace; super() &rbrace;&rbrace;</span> can be used to render the content of the parent block, allowing for appending or prepending content without completely overriding it</li>
+                </ul>
+
+            <h3>Super Blocks</h3>
+                <p>When we are inheriting templates. Sometimes, there's some part of the template that we want to keep, but we also want to add to it. So we can use super blocks in this case</p>
+                <ul>
+                    <li>the super keyword refers to the parent that the child is inheriting from. e.g If Simba inherits from Mufasa, then Mufasa is the super</li>
+                    <li> add a super block using <span>&lbrace;&lbrace; super() &rbrace;&rbrace;</span></li>
                 </ul>
     </div>
 
@@ -77,7 +83,5 @@
                 <img src="./static/images/inheritance-child2rendered.png">
             </div>
         </div>
-
-    </div>
-</main>
+</div>
  {% endblock %}

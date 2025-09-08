@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jinja Templates</title>
- <style>
+{% extends "base.html" %}
+{% block title %}Jinja Templates{% endblock %}
+ {% block styles %}
      .content{
         padding: 2rem;
      }
@@ -19,12 +16,9 @@
      .more_info{
         color: grey;
         font-style: italic;
- </style>
-</head>
-<body>
+ {% endblock %}
 
-
-{% include "menu.html" %}
+{% block content %}
 
     <div class="content">
         <h1>Jinja Templates</h1>
@@ -53,7 +47,4 @@
 
         <p>Jinja is widely used in Python web frameworks like Flask, where it serves as the default templating engine for generating dynamic HTML responses.<br> It is also used in other applications like Ansible for configuration management.</p>
     </div>
-
-
-</body>
-</html>
+{% endblock %}

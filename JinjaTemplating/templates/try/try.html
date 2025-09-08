@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style the buttons */
+.btn, .nav-link {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active,.nav-link:hover{
+  background-color: #666;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>Active Button</h1>
+<p>Highlight the active/current (pressed) button.</p>
+
+<div id="myDIV">
+  <a href="{{ url_for('home') }}" class="nav-link active">Jinja</a>
+  <a href="{{ url_for('inheritance')}}" class="nav-link">Inheritance</a>
+  <a href="{{ url_for('include')}}" class="nav-link">Include Directive</a>
+  <a href="#about" class="nav-link">About</a>
+</div>
+
+<script>
+
+
+// Add active class to the current button (highlight it)
+var header2 = document.getElementById("myDIV");
+var nav_items = header2.getElementsByClassName("nav-link");
+for (var i = 0; i < nav_items.length; i++) {
+  nav_items[i].addEventListener("click", function() {
+  var current2 = document.getElementsByClassName("active");
+  current2[0].className = current2[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>

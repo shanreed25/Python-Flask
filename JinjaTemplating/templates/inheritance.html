@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jinja Templates: Inheritance</title>
- <style>
+{% extends "base.html" %}
+{% block title %}Jinja Templates: Inheritance{% endblock %}
+{% block styles %}
      main{
         padding: 2rem;
      }
@@ -26,10 +23,9 @@
         justify-content: space-between;
      }
 
- </style>
-</head>
-<body>
-{% include "menu.html" %}
+ {% endblock %}
+
+{% block content %}
 <main>
     <div class="concept-intro">
         <h2>Template Inheritance</h2>
@@ -84,5 +80,4 @@
 
     </div>
 </main>
-</body>
-</html>
+ {% endblock %}

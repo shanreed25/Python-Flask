@@ -5,12 +5,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.topnav {
+#main-nav {
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.topnav a {
+#main-nav a {
   float: left;
   color: black;
   text-align: center;
@@ -19,23 +19,37 @@ body {
   font-size: 17px;
 }
 
-.topnav a:hover {
-  background-color: purple;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: purple;
+.active,.nav-link:hover{
+  background-color: #666;
   color: white;
 }
+
 </style>
 
 
-<div class="topnav">
-  <a class="active" href="{{ url_for('home') }}">Jinja</a>
-  <a href="{{ url_for('inheritance')}}">Inheritance</a>
-  <a href="{{ url_for('include')}}">Include Directive</a>
-  <a href="#about">About</a>
-</div>
+<nav id="main-nav">
+  <a href="{{ url_for('home') }}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Jinja</a>
+  <a href="{{ url_for('inheritance')}}" class="nav-link {% if active_page == 'inheritance' %}active{% endif %}">Inheritance</a>
+  <a href="{{ url_for('include')}}" class="nav-link {% if active_page == 'include' %}active{% endif %}">Include Directive</a>
+  <a href="#about" class="nav-link">About</a>
+</nav>
+
+<script>
+
+
+// Add active class to the current button (highlight it)
+var header2 = document.getElementById("main-nav");
+var nav_items = header2.getElementsByClassName("nav-link");
+for (var i = 0; i < nav_items.length; i++) {
+  nav_items[i].addEventListener("click", function() {
+  var current2 = document.getElementsByClassName("active");
+  current2[0].className = current2[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
+
+
+
 
 

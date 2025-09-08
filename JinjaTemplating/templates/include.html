@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jinja Templates: Include</title>
- <style>
+{% extends "base.html" %}
+{% block title %}Jinja Templates: Include{% endblock %}
+
+ {% block styles %}
      .content{
         padding: 2rem;
      }
@@ -16,10 +14,8 @@
      .more_info{
         color: grey;
         font-style: italic;
- </style>
-</head>
-<body>
-{% include "menu.html" %}
+ {% endblock %}
+{% block content %}
 <div class="content">
 
 
@@ -123,5 +119,4 @@
         <li> will prevent an error if optional_section.html is not found</li>
     </ul>
 </div>
-</body>
-</html>
+{% endblock %}

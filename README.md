@@ -41,15 +41,6 @@
     - For templates you can use the full power of [Jinja Templates](https://jinja.palletsprojects.com/en/stable/templates/)
 
 
+______________________________________________
 
-To add {% include "menu.html" %} as literal text on an HTML page, rather than having it processed as a template include, you need to escape the special characters. This involves replacing the < and > characters with their corresponding HTML entities.
-Here's how to do it:
-Code
-
-- `<p>&lbrace;&percnt; include &quot;menu.html&quot; &percnt;&rbrace;</p>`
-###### Explanation of Entities:
-- &lbrace; represents {
-- &percnt; represents %
-- &quot; represents "
-- &rbrace; represents }
-**By using these HTML entities, the browser will render the text literally, displaying {% include "menu.html" %} instead of attempting to process it as a template directive.**
+- [Flask and Requests Module](./Requests/README.md)

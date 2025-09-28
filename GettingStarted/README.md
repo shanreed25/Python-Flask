@@ -5,13 +5,13 @@
 1. Create Flask application
 2. Define URL routes
 3. Run development server
-```
+```python
 from flask import Flask, render_template
 
 app = Flask(__name__)  # Create Flask application
 
 @app.route('/')        # Define URL routes
-def home():
+def home(): # view Function
     return render_template('index.html')
 
 if __name__ == '__main__':

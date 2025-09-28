@@ -19,7 +19,7 @@ def get_about():
 ```
 
 
-#### **Request Data Categories**
+#### **🔑 Key Request Attributes**
 
 [🔗 URL and Routing Information](./URLandRouting.md)
 

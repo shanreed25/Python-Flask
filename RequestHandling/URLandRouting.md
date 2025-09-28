@@ -1,5 +1,4 @@
 ### **🔗 Request Object: URL and Routing Information**
-- `request.method` : is the HTTP method (GET, POST, etc.)
 - `request.url` : is the full URL with domain `http://127.0.0.1:5000/dashboard/python`
 - `request.endpoint` : name of view function `dashboard_section`
 - `request.url_rule` : route pattern `/dashboard/<language>/<section>`
